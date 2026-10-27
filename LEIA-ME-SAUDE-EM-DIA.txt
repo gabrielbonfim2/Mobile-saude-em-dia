@@ -1,0 +1,26 @@
+SAÚDE EM DIA - app para organizar medicamentos e acompanhar a rotina diária
+
+TELAS (4 abas na barra de baixo)
+1) Medicamentos: cadastrar, editar e excluir (com confirmação). Horário validado (HH:MM).
+2) Minha rotina: agenda do dia ordenada por horário, com status de cada dose
+   (pendente / atrasada / tomada), próxima dose, contador e barra de progresso.
+3) Dicas: cartões com hábitos gerais de cuidado (não substituem orientação profissional).
+4) Perfil: e-mail da conta, resumo de hoje (cadastrados, tomadas, atrasadas) e botão Sair.
+
+VISUAL
+- Fonte: Poppins (arquivos em res/font). A tipografia do app fica em theme/Fonts.kt e theme/Type.kt.
+- Imagem principal da tela inicial: res/drawable/saude_hero.png.
+
+LÓGICA PRÓPRIA (além do CRUD)
+- Dose "atrasada" é calculada comparando o horário cadastrado com a hora atual (atualiza a cada 30 s).
+- A marcação "tomei" vale só para o dia: no dia seguinte as doses voltam a ficar pendentes.
+- Destaque da próxima dose e aviso de doses atrasadas.
+
+DADOS
+- Login/cadastro: Firebase Authentication.
+- Medicamentos: salvos no aparelho (SharedPreferences), separados por usuário logado.
+- Não envia notificações e não calcula dosagem. Não substitui orientação de profissional de saúde.
+
+COMO ABRIR
+1. Extraia o ZIP e abra a pasta Mobile no Android Studio (File > Open).
+2. Aguardar o Gradle para sincronizar e depois executar o app no emulado
